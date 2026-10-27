@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Beautiful Soul 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Caveat:wght@500;600;700&display=swap');
+
+:root {
+  --pink: #f8b8cb;
+  --light: #fff0f5;
+  --dark: #713b51;
+  --deep: #a64f72;
+  --cream: #fffaf5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 30px 18px;
+  animation: fadeIn .7s ease;
+}
+
+.page.active { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#page1 {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 15% 15%, #fff8fb 0, transparent 35%),
+    radial-gradient(ellipse at 90% 80%, #f4a9c4 0, transparent 40%),
+    linear-gradient(145deg, #ffeaf1, #f8c4d5);
+}
+
+.cover {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 35px 15px;
+}
+
+.eyebrow {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a75b79;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.cover h1 {
+  font-size: clamp(44px, 9vw, 82px);
+  line-height: 1.08;
+  margin: 22px 0;
+  color: #873d5d;
+}
+
+.cover h1 span { font-style: italic; color: #d16f97; }
+
+.cover p {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.hero-heart {
+  font-size: 65px;
+  display: inline-block;
+  animation: heartbeat 1.8s infinite;
+  filter: drop-shadow(0 8px 15px #d66e9860);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+}
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 24px;
+  background: #a94e72;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 8px 22px #a94e7233;
+  transition: .25s;
+}
+
+.btn:hover { transform: translateY(-3px); box-shadow: 0 12px 26px #a94e7244; }
+
+.btn.secondary {
+  color: #984765;
+  background: white;
+  border: 1px solid #f0c4d3;
+  box-shadow: none;
+}
+
+.floating {
+  position: absolute;
+  bottom: -40px;
+  opacity: .65;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: .7; }
+  90% { opacity: .6; }
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+/* PAGE 2 — SCRAPBOOK */
+#page2 {
+  display: none;
+  background:
+    radial-gradient(circle at 10% 10%, #fff9f0, transparent 30%),
+    #f8e6d9;
+  flex-direction: column;
+  align-items: center;
+}
+
+#page2.active { display: flex; }
+
+.section-head {
+  text-align: center;
+  width: 100%;
+  max-width: 850px;
+  margin: 10px auto 28px;
+}
+
+.section-head h2 {
+  font-size: clamp(34px, 6vw, 55px);
+  margin: 12px 0;
+  color: #8b4a60;
+}
+
+.section-head p { line-height: 1.7; }
+
+.scrapbook {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.memory {
+  position: relative;
+  background: #fffdf7;
+  padding: 12px 12px 22px;
+  box-shadow: 0 8px 24px #69463417;
+  transform: rotate(-1.5deg);
+  transition: transform .3s;
+}
+
+.memory:nth-child(2) { transform: rotate(1.8deg); }
+.memory:nth-child(3) { transform: rotate(1.3deg); }
+.memory:nth-child(4) { transform: rotate(-1deg); }
+
+.memory:hover { transform: rotate(0) translateY(-4px); }
+
+.memory img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #f4d9e2;
+}
+
+.memory .caption {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 13px;
+  color: #a04d6b;
+}
+
+.tape {
+  position: absolute;
+  top: -9px;
+  left: 38%;
+  width: 65px;
+  height: 21px;
+  background: #efb9c8b8;
+  transform: rotate(-5deg);
+}
+
+.letter {
+  max-width: 740px;
+  width: 100%;
+  background: #fffaf3;
+  margin: 38px auto 25px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid #eed8c7;
+  box-shadow: 0 10px 30px #714e3512;
+  position: relative;
+}
+
+.letter:before {
+  content: "A LITTLE LETTER FOR YOU";
+  display: block;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 10px;
+  color: #b57a89;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.letter h3 {
+  text-align: center;
+  font-size: 30px;
+  margin: 0 0 18px;
+}
+
+.letter p {
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  line-height: 1.65;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0 10px;
+}
+
+/* PAGE 3 — BIRTHDAY CAKE */
+#page3 {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 35%, #fff7fb, transparent 50%),
+    linear-gradient(135deg, #fbe0eb, #f4b9cf);
+}
+
+#page3.active { display: flex; }
+
+#page3 h2 {
+  font-size: clamp(36px, 7vw, 58px);
+  margin: 8px 0 5px;
+}
+
+.subtitle { max-width: 430px; line-height: 1.7; }
+
+.cake-stage {
+  position: relative;
+  width: 300px;
+  height: 265px;
+  margin: 15px auto 8px;
+}
+
+.plate {
+  position: absolute;
+  bottom: 18px;
+  left: 15px;
+  width: 270px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(#fff, #dfb4c5);
+  box-shadow: 0 10px 20px #8c476b20;
+}
+
+.cake-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 42px;
+  width: 216px;
+  height: 95px;
+  border-radius: 12px 12px 20px 20px;
+  background: linear-gradient(90deg, #eaa0b8, #ffdce6 45%, #e99ab4);
+  box-shadow: inset 0 -12px #d87e9d;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 118px;
+  left: 42px;
+  width: 216px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff0f3;
+  border: 3px solid #f5c1d1;
+  z-index: 2;
+}
+
+.drip {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  width: 20px;
+  height: 27px;
+  border-radius: 0 0 12px 12px;
+  background: #fff0f3;
+  box-shadow: 42px 4px #fff0f3, 90px -2px #fff0f3, 145px 5px #fff0f3;
+}
+
+.candle {
+  position: absolute;
+  z-index: 3;
+  bottom: 153px;
+  left: 143px;
+  width: 15px;
+  height: 65px;
+  border-radius: 4px 4px 2px 2px;
+  background: repeating-linear-gradient(135deg, #fff 0 7px, #d76f98 7px 14px);
+}
+
+.flame {
+  position: absolute;
+  left: 3px;
+  top: -26px;
+  width: 10px;
+  height: 22px;
+  background: #ffb52e;
+  border-radius: 60% 40% 60% 40%;
+  transform: rotate(2deg);
+  box-shadow: 0 0 20px #ff9d34;
+  animation: flicker .25s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: rotate(-7deg) scale(.95); }
+  to { transform: rotate(7deg) scale(1.08); }
+}
+
+.candle.out .flame {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.smoke {
+  position: absolute;
+  top: -28px;
+  left: 4px;
+  font-size: 24px;
+  opacity: 0;
+}
+
+.candle.out .smoke { animation: smokeUp 1.2s ease-out; }
+
+@keyframes smokeUp {
+  0% { opacity: .8; transform: translateY(0) scale(.5); }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.8); }
+}
+
+.age {
+  position: absolute;
+  top: 20px;
+  right: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #bc557b;
+  opacity: 0;
+  text-shadow: 0 0 12px #ff9b47;
+}
+
+.age.burn {
+  opacity: 1;
+  animation: burn 2.2s forwards;
+}
+
+@keyframes burn {
+  0% { opacity: 1; filter: brightness(1); transform: scale(1); }
+  35% { color: #ff7c32; filter: brightness(1.5); text-shadow: 0 0 20px #ff5d24; }
+  70% { color: #573746; filter: brightness(.7); text-shadow: 0 0 9px #ff9d3d; }
+  100% { opacity: 0; filter: blur(5px); transform: translateY(-12px) scale(1.2); }
+}
+
+.final-message {
+  max-width: 500px;
+  line-height: 1.8;
+  padding: 0 12px;
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 9px;
+  height: 14px;
+  animation: fall 3.5s linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  opacity: .7;
+  margin: 25px 0 10px;
+}
+
+@media (max-width: 560px) {
+  .page { padding: 22px 14px; }
+  .scrapbook { gap: 15px; }
+  .memory { padding: 8px 8px 16px; }
+  .memory img { height: 155px; }
+  .memory .caption { font-size: 20px; }
+  .letter p { font-size: 21px; }
+  .cake-stage { transform: scale(.9); margin-top: 0; margin-bottom: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="confetti"></div>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+  <div class="cover">
+    <div class="hero-heart">♡</div>
+    <div class="eyebrow">A little surprise, made with love</div>
+    <h1>Happy Birthday,<br><span id="nameCover">Beautiful Soul</span></h1>
+    <p>
+      Today is all about you, your beautiful heart, your smile,
+      and all the little things that make you special.
+    </p>
+    <button class="btn" onclick="goToPage(2)">Open Your Surprise ♡</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <div class="section-head">
+    <div class="eyebrow">Little moments, big memories</div>
+    <h2>A scrapbook of smiles ♡</h2>
+    <p>Some memories deserve their own little corner of the world.</p>
+  </div>
+
+  <div class="scrapbook">
+    <div class="memory">
+      <div class="tape"></div>
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=85" alt="Birthday balloons">
+      <div class="caption">A day worth celebrating ✨</div>
+    </div>
+
+    <div class="memory">
+      <div class="tape"></div>
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=85" alt="Birthday cake">
+      <div class="caption">Sweet moments, always ♡</div>
+    </div>
+
+    <div class="memory">
+      <div class="tape"></div>
+      <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=85" alt="Party decorations">
+      <div class="caption">More laughter, more magic 🌸</div>
+    </div>
+
+    <div class="memory">
+      <div class="tape"></div>
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=85" alt="Celebration lights">
+      <div class="caption">Keep shining, beautiful ✨</div>
+    </div>
+  </div>
+
+  <article class="letter">
+    <h3>To Someone Special</h3>
+    <p id="letterText">Happy Birthday! 💗
+
+I hope this new chapter brings you peaceful days, beautiful surprises, genuine happiness, and countless reasons to smile.
+
+Never forget how special you are. You deserve the kind of happiness that stays, the kind of love that feels safe, and the kind of memories that make you smile even years later.
+
+May every little dream in your heart find its way to you. Keep being your wonderful self, keep smiling, and never stop shining.
+
+Here's to you, your dreams, and a beautiful year ahead. Happy Birthday once again! 🎂💐
+
+With lots of love ♡</p>
+  </article>
+
+  <div class="navigation">
+    <button class="btn secondary" onclick="goToPage(1)">← Back</button>
+    <button class="btn" onclick="goToPage(3)">Make a Birthday Wish 🎂</button>
+  </div>
+  <footer>Made with love, just for you ♡</footer>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+  <div class="eyebrow">Make a wish, close your eyes</div>
+  <h2>Your special moment 🎂</h2>
+  <p class="subtitle">Take a deep breath, make a beautiful wish, and blow out your candle.</p>
+
+  <div class="cake-stage">
+    <div class="plate"></div>
+    <div class="cake-bottom"></div>
+    <div class="cake-top"><div class="drip"></div></div>
+    <div class="candle" id="candle">
+      <div class="flame" id="flame"></div>
+      <div class="smoke">〰</div>
+    </div>
+    <div class="age" id="ageNumber">21</div>
+  </div>
+
+  <div class="final-message">
+    <p id="wishText">Your wish is waiting to come true. ✨</p>
+    <button class="btn" id="blowButton" onclick="blowCandle()">Blow Out the Candle ♡</button>
+    <button class="btn secondary" id="micButton" onclick="startBlowDetection()" style="display:none;margin-top:10px">🎤 Blow into your microphone</button>
+    <p style="font-size:12px;opacity:.7">You can tap the button to blow out the candle.</p>
+  </div>
+
+  <div class="navigation">
+    <button class="btn secondary" onclick="goToPage(2)">← Memories</button>
+    <button class="btn secondary" onclick="goToPage(1)">Start Again ↻</button>
+  </div>
+
+  <footer>May your year be as lovely as you are 💗</footer>
+</section>
+
+<script>
+/* ==============================
+   PERSONALIZE YOUR BIRTHDAY PAGE
+   Change these three values only.
+================================= */
+
+const birthdayName = "Beautiful Soul";
+const birthdayAge = "21";
+const birthdayMessage = `Happy Birthday! 💗
+
+I hope this new chapter brings you peaceful days, beautiful surprises, genuine happiness, and countless reasons to smile.
+
+Never forget how special you are. You deserve the kind of happiness that stays, the kind of love that feels safe, and the kind of memories that make you smile even years later.
+
+May every little dream in your heart find its way to you. Keep being your wonderful self, keep smiling, and never stop shining.
+
+Here's to you, your dreams, and a beautiful year ahead. Happy Birthday once again! 🎂💐
+
+With lots of love ♡`;
+
+/* ============================== */
+
+document.getElementById("nameCover").textContent = birthdayName;
+document.getElementById("ageNumber").textContent = birthdayAge;
+document.getElementById("letterText").textContent = birthdayMessage;
+document.title = "Happy Birthday, " + birthdayName + " ♡";
+
+function goToPage(pageNumber) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+    page.style.display = "none";
+  });
+
+  const nextPage = document.getElementById("page" + pageNumber);
+  nextPage.style.display = "flex";
+
+  requestAnimationFrame(() => nextPage.classList.add("active"));
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (pageNumber === 3) {
+    document.getElementById("micButton").style.display =
+      (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) ? "inline-block" : "none";
+  }
+}
+
+/* Floating hearts on cover */
+function createFloatingHeart() {
+  const heart = document.createElement("div");
+  heart.className = "floating";
+  heart.textContent = ["♡", "♥", "✦", "✿"][Math.floor(Math.random() * 4)];
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.fontSize = (15 + Math.random() * 24) + "px";
+  heart.style.animationDuration = (7 + Math.random() * 8) + "s";
+  document.getElementById("page1").appendChild(heart);
+  setTimeout(() => heart.remove(), 16000);
+}
+
+setInterval(createFloatingHeart, 650);
+
+/* Confetti celebration */
+function celebrate() {
+  const holder = document.getElementById("confetti");
+  const pieces = ["💗", "✨", "🌸", "💕", "✦", "🎉"];
+
+  for (let i = 0; i < 65; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+    piece.style.left = Math.random() * 100 + "%";
+    piece.style.fontSize = (12 + Math.random() * 17) + "px";
+    piece.style.animationDelay = Math.random() * 1.5 + "s";
+    holder.appendChild(piece);
+    setTimeout(() => piece.remove(), 5000);
+  }
+}
+
+/* Candle blow-out animation */
+let candleBlown = false;
+
+function blowCandle() {
+  if (candleBlown) {
+    document.getElementById("wishText").textContent =
+      "Your wish is already on its way! Keep believing in beautiful things. 💗";
+    return;
+  }
+
+  candleBlown = true;
+
+  document.getElementById("candle").classList.add("out");
+  document.getElementById("ageNumber").classList.add("burn");
+  document.getElementById("blowButton").textContent = "Wish Made! 💗";
+  document.getElementById("wishText").textContent =
+    "✨ Your wish has been sent to the universe. May all your dreams come true! ✨";
+
+  celebrate();
+}
+
+/* Optional microphone blow detection.
+   Works only on supported browsers and secure pages (HTTPS/localhost). */
+let audioStream = null;
+let audioContext = null;
+let micActive = false;
+
+async function startBlowDetection() {
+  if (micActive) return;
+
+  try {
+    audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    const source = audioContext.createMediaStreamSource(audioStream);
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 512;
+    source.connect(analyser);
+
+    const data = new Uint8Array(analyser.fftSize);
+    micActive = true;
+
+    document.getElementById("micButton").textContent = "🎤 Listening... blow now!";
+
+    let loudFrames = 0;
+    let listeningFrames = 0;
+
+    function checkSound() {
+      if (!micActive || candleBlown) {
+        stopMicrophone();
+        return;
+      }
+
+      analyser.getByteTimeDomainData(data);
+
+      let sum = 0;
+      for (let i = 0; i < data.length; i++) {
+        const normalized = (data[i] - 128) / 128;
+        sum += normalized * normalized;
+      }
+
+      const volume = Math.sqrt(sum / data.length);
+      listeningFrames++;
+
+      if (volume > 0.12) loudFrames++;
+      else loudFrames = Math.max(0, loudFrames - 1);
+
+      if (listeningFrames > 15 && loudFrames >= 5) {
+        stopMicrophone();
+        blowCandle();
+        return;
+      }
+
+      requestAnimationFrame(checkSound);
+    }
+
+    checkSound();
+  } catch (error) {
+    document.getElementById("wishText").textContent =
+      "Microphone unavailable. You can still tap the candle button! 💗";
+    stopMicrophone();
+  }
+}
+
+function stopMicrophone() {
+  micActive = false;
+
+  if (audioStream) {
+    audioStream.getTracks().forEach(track => track.stop());
+    audioStream = null;
+  }
+
+  if (audioContext) {
+    audioContext.close().catch(() => {});
+    audioContext = null;
+  }
+
+  const micButton = document.getElementById("micButton");
+  if (micButton) micButton.textContent = "🎤 Try microphone again";
+}
+
+</script>
+</body>
+</html>
